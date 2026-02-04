@@ -63,9 +63,6 @@ erDiagram
 ⮕ <code>student(<u>ID</u>, name, tot_cred)</code>
 
 
-This is the rule for strong entity sets with simple attributes
-
-
 
 </div>
 
@@ -433,12 +430,13 @@ if multiple donations can occur on the same day, use a timestamp or add a surrog
 
 <div class="p-5">
 
-
 You can translate an ER model to a relational schema by following a set of rules.
 
-- an entity set maps to a relational schema
-- attributes of schema are attributes of the entity set
-- a relationship set maps to a relational schema
-- attributes are keys of the related entity sets, plus attributes of the relationship set
+- an entity set maps to a relation
+- attributes of the relation are the attributes of the entity set
+- a weak entity set maps to a relation that includes the owner’s primary key (as a foreign key)
+- for many-to-many relationships, create a new relation with the keys of the related entity sets + relationship attributes
+- for one-to-many relationships, add the key of the “1” side as a foreign key to the “N” side (no new relation)
+- create a separate relation for a relationship set only when needed (e.g., many-to-many, or the relationship has its own attributes)
 
 </div>
