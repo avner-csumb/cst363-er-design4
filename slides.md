@@ -82,7 +82,7 @@ This is the rule for strong entity sets with simple attributes
   
 ```mermaid {scale: 0.6}
 erDiagram
-  course ||--|{ section : has
+  course ||--o{ section : has
 
   course {
     string course_id PK
@@ -117,7 +117,7 @@ $+$ foreign key (`course_id`) references `course(course_id)`
 
 > Remember: the primary key of a weak entity set $=$<br>
 PK of the identifying (owner) entity set $+$ partial key of the weak entity set.<br>
-Here: `PK(section) = course_id + (sec_id, semester, year)`
+Here: `PK(section) = (course_id, sec_id, semester, year)`
 
 
 </div>
